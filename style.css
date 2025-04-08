@@ -1,0 +1,55 @@
+body {
+    background-color: #f9f8f5;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+    height: 100vh;
+    margin: 0; 
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #08c738; 
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 50px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #fefeff; 
+}
+
+img {
+    width: 500px; 
+    margin: 20px 0; 
+}
+
+#play-button {
+    background-color: #3498db; 
+    color: white; 
+    font-size: 48px;
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 50px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    cursor: pointer; /* Cambia il cursore quando sopra il bottone */
+    transition: all 0.3s ease;
+    margin-top: 20px; /* Distanza tra il bottone e gli altri elementi */
+}
+
+/* Effetto hover per il bottone */
+#play-button:hover {
+    background-color: #2980b9; 
+    transform: scale(1.05); 
+}
+
+/* Effetto attivo per quando il bottone viene cliccato */
+#play-button:active {
+    transform: scale(1);
+    background-color: #1c5980;
+}
