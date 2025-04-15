@@ -1,30 +1,33 @@
 body {
     background-color: #f9f8f5;
     display: flex;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
     height: 100vh;
-    margin: 0; 
+    margin: 0;
 }
+
 img {
-    width: 150px; 
-    margin: 20px 0; 
+    width: 150px;
 }
+
 .divider {
-    width: 100%;
-    border-top: 6px dashed #066aff; 
-    display: block; 
+    width: 30%;
+    border-top: 6px solid #000000;
+    display: block;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 }
+
+
 
 /* Contenitore della griglia */
 .grid-container {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px; 
-    grid-template-rows: 50px 50px 50px 50px 50px 50px; 
-    column-gap: 10px; 
-    row-gap:20px;
+    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    column-gap: 10px;
+    row-gap: 20px;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
@@ -47,36 +50,43 @@ img {
 .grid-item {
     width: 100%;
     height: 100%;
-    background-color:rgb(211, 209, 209);
+    background-color: rgb(211, 209, 209);
     color: white;
     border: none;
     text-align: center;
     font-size: 30px;
     outline: none;
 }
+
 /* Effetto al passaggio del mouse */
 .grid-item:hover {
     background-color: rgb(211, 209, 209);
 }
 
-/* Contenitore della tastiera */
 .keyboard-container {
-    display: grid;
-    grid-template-columns: repeat(10, 50px); /* 10 colonne per la prima riga */
-    grid-template-rows: repeat(4, 50px); /* 4 righe di tasti */
-    gap: 5px; /* Spazio tra i tasti */
-    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 50px;
+    gap: 10px;
 }
 
-/* Stile per ogni tasto */
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
 .key {
     background-color: #444444;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 24px;
     border-radius: 5px;
     border: 2px solid #333333;
     width: 50px;
@@ -92,11 +102,44 @@ img {
     background-color: #666666;
 }
 
-/* Righe speciali per i tasti SHIFT, SPACE, ecc. */
-.key-wide {
-    grid-column: span 2; /* Espande il tasto su 2 colonne */
+/* Spaziatori per dare l'effetto piramidale */
+.spacer {
+    width: 25px;
 }
 
-.key-wide-3 {
-    grid-column: span 3; /* Espande il tasto su 3 colonne */
+.spacer.double {
+    width: 50px;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 4%;
+    background-color: rgb(79, 117, 221);
+    color: white;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+.theme-black-white {
+            background-color: #000;
+            color: #fff;
+        }
+        .theme-light {
+            background-color: #fff;
+            color: #000;
+        }
+        .theme-dark {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+
+.bottonitema {
+    background-color: white;
+    width: 30%;
 }

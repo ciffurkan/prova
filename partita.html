@@ -2,19 +2,33 @@
 <html>
 
 <head>
-    <title>The wordle Ciny</title>
+    <title>The Wordle Ciny</title>
     <link rel="stylesheet" href="style-partita.css">
     <link rel="icon" type="image/png" href="/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <img src="img/logo_no-bg.png">
+    <img src="img/logo_impostazioni.webp">
+
+    <div >
+
+        <div class="bottonitema">
+            <button  onclick="changeTheme('light')"><img src="img/immagine_sole.svg"></button>
+            <button  onclick="changeTheme('dark')"><img src="img/immagine_luna.svg"></button>
+        </div>
+
+    </div>
 
     <div class="divider"></div>
 
     <div class="grid-container" >
         
-        <div class="grid-item"></div>
+        <div class="grid-item">L</div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
@@ -57,39 +71,61 @@
     </div>
 
     <div class="keyboard-container">
-       
-        <div class="key">Q</div>
-        <div class="key">W</div>
-        <div class="key">E</div>
-        <div class="key">R</div>
-        <div class="key">T</div>
-        <div class="key">Y</div>
-        <div class="key">U</div>
-        <div class="key">I</div>
-        <div class="key">O</div>
-        <div class="key">P</div>
-
-        
-        <div class="key">A</div>
-        <div class="key">S</div>
-        <div class="key">D</div>
-        <div class="key">F</div>
-        <div class="key">G</div>
-        <div class="key">H</div>
-        <div class="key">J</div>
-        <div class="key">K</div>
-        <div class="key">L</div>
-
-       
-        <div class="key">Z</div>
-        <div class="key">X</div>
-        <div class="key">C</div>
-        <div class="key">V</div>
-        <div class="key">B</div>
-        <div class="key">N</div>
-        <div class="key">M</div>
-
+        <div class="keyboard-row">
+            <div class="key">Q</div>
+            <div class="key">W</div>
+            <div class="key">E</div>
+            <div class="key">R</div>
+            <div class="key">T</div>
+            <div class="key">Y</div>
+            <div class="key">U</div>
+            <div class="key">I</div>
+            <div class="key">O</div>
+            <div class="key">P</div>
+        </div>
+    
+        <div class="keyboard-row">
+            <div class="spacer"></div>
+            <div class="key">A</div>
+            <div class="key">S</div>
+            <div class="key">D</div>
+            <div class="key">F</div>
+            <div class="key">G</div>
+            <div class="key">H</div>
+            <div class="key">J</div>
+            <div class="key">K</div>
+            <div class="key">L</div>
+            <div class="spacer"></div>
+        </div>
+    
+        <div class="keyboard-row">
+            <div class="spacer double"></div>
+            <div class="key">Z</div>
+            <div class="key">X</div>
+            <div class="key">C</div>
+            <div class="key">V</div>
+            <div class="key">B</div>
+            <div class="key">N</div>
+            <div class="key">M</div>
+            <div class="spacer double"></div>
+        </div>
     </div>
+    
+    <footer><p>crediti: De Santis e Ciftepala (D&C)</p></footer>
+
+
+    <script>
+        function changeTheme(theme) {
+            const body = document.body;
+            body.classList.remove('theme-light', 'theme-dark');
+
+            if (theme === 'light') {
+                body.classList.add('theme-light');
+            } else if (theme === 'dark') {
+                body.classList.add('theme-dark');
+            } 
+        }
+    </script>
 
     <script src="script-partita.js"></script>
 </body>
