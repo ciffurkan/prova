@@ -11,17 +11,24 @@ function inputLetter() {
     document.getElementsByTagName("html").item(0).addEventListener("keyup", function () {
         const lettera = event.key.toLowerCase();
 
-
-        if (!inputCorrente.length === 5) {
-
-            if (lettera.match(/^[a-z]$/)) {
+        if (lettera.match(/^[a-z]$/)) {
+            if (inputCorrente.length >= 5) {
+                console.log("Hai già inserito 5 lettere!");
+                return;
+            } else {
                 inputCorrente.push(lettera);
                 console.log("Lettere inserite:", inputCorrente.join(""));
             }
 
-        } else {
-            console.log("Parola completa inserita:", inputCorrente.join(""));
+        } else if (lettera === "backspace") {
+            if (inputCorrente.length > 0) {
+                inputCorrente.pop();
+                console.log("Lettere rimosse:", inputCorrente.join(""));
+            } else {
+                console.log("Nessuna lettera da rimuovere!");
+            }
         }
+
 
     });
 }
