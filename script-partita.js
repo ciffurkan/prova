@@ -27,6 +27,8 @@ function inputLetter() {
             } else {
                 console.log("Nessuna lettera da rimuovere!");
             }
+        } else if (lettera == "enter" && inputCorrente.length==5){
+            
         }
 
 
