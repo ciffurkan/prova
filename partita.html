@@ -6,28 +6,29 @@
     <link rel="stylesheet" href="style-partita.css">
     <link rel="icon" type="image/png" href="/img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
     <img src="img/logo_no-bg.png">
 
-    <div >
+    <div>
 
         <div class="bottonitema">
             <button><img src="img/impostazione-removebg-preview.png"></button>
-            <button  onclick="changeTheme('light')"><img src="img/immagine_sole.svg"></button>
-            <button  onclick="changeTheme('dark')"><img src="img/immagine_luna.svg"></button>
+            <button onclick="changeTheme('light')"><img src="img/immagine_sole.svg"></button>
+            <button onclick="changeTheme('dark')"><img src="img/immagine_luna.svg"></button>
         </div>
 
     </div>
 
     <div class="divider"></div>
 
-    <div class="grid-container" >
-        
+    <div class="grid-container">
+
+
 
         <div class="grid-item"></div>
         <div class="grid-item"></div>
@@ -35,92 +36,90 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
 
+ 
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
 
-     <div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-     </div>   
 
-     <div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-    </div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
 
-     <div> 
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-     </div>
 
-     <div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-     </div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
 
-     <div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-     </div>
+
+
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+
+
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
     </div>
 
     <div class="keyboard-container">
         <div class="keyboard-row">
-            <div class="key">Q</div>
-            <div class="key">W</div>
-            <div class="key">E</div>
-            <div class="key">R</div>
-            <div class="key">T</div>
-            <div class="key">Y</div>
-            <div class="key">U</div>
-            <div class="key">I</div>
-            <div class="key">O</div>
-            <div class="key">P</div>
+            <button id="q" class="key" onclick="inputButton()">Q</button>
+            <button id="w" class="key" onclick="inputButton()">W</button>
+            <button id="e" class="key" onclick="inputButton()">E</button>
+            <button id="r" class="key" onclick="inputButton()">R</button>
+            <button id="t" class="key" onclick="inputButton()">T</button>
+            <button id="y" class="key" onclick="inputButton()">Y</button>
+            <button id="u" class="key" onclick="inputButton()">U</button>
+            <button id="i" class="key" onclick="inputButton()">I</button>
+            <button id="o" class="key" onclick="inputButton()">O</button>
+            <button id="p" class="key" onclick="inputButton()">P</button>
         </div>
-    
+
         <div class="keyboard-row">
             <div class="spacer"></div>
-            <div class="key">A</div>
-            <div class="key">S</div>
-            <div class="key">D</div>
-            <div class="key">F</div>
-            <div class="key">G</div>
-            <div class="key">H</div>
-            <div class="key">J</div>
-            <div class="key">K</div>
-            <div class="key">L</div>
+            <button id="a" class="key" onclick="inputButton()">A</button>
+            <button id="s" class="key" onclick="inputButton()">S</button>
+            <button id="d" class="key" onclick="inputButton()">D</button>
+            <button id="f" class="key" onclick="inputButton()">F</button>
+            <button id="g" class="key" onclick="inputButton()">G</button>
+            <button id="h" class="key" onclick="inputButton()">H</button>
+            <button id="j" class="key" onclick="inputButton()">J</button>
+            <button id="k" class="key" onclick="inputButton()">K</button>
+            <button id="l" class="key" onclick="inputButton()">L</button>
             <div class="spacer"></div>
         </div>
-    
+
         <div class="keyboard-row">
             <div class="spacer double"></div>
-            <div class="key2">⌫</div>
-            <div class="key">Z</div>
-            <div class="key">X</div>
-            <div class="key">C</div>
-            <div class="key">V</div>
-            <div class="key">B</div>
-            <div class="key">N</div>
-            <div class="key">M</div>
-            <div class="key2">↵</div>
+            <button id="invio" class="key2">↵</button>
+            <button id="z" class="key" onclick="inputButton()">Z</button>
+            <button id="x" class="key" onclick="inputButton()">X</button>
+            <button id="c" class="key" onclick="inputButton()">C</button>
+            <button id="v" class="key" onclick="inputButton()">V</button>
+            <button id="b" class="key" onclick="inputButton()">B</button>
+            <button id="n" class="key" onclick="inputButton()">N</button>
+            <button id="m" class="key" onclick="inputButton()">M</button>
+            <button id="canc" class="key2" onclick="inputButton()">⌫</button>
             <div class="spacer double"></div>
         </div>
     </div>
-    
-    <footer><p>crediti: De Santis e Ciftepala (D&C)</p></footer>
+
+
+    <footer>
+        <p>crediti: De Santis e Ciftepala (D&C)</p>
+    </footer>
 
 
     <script>
@@ -132,9 +131,12 @@
                 body.classList.add('theme-light');
             } else if (theme === 'dark') {
                 body.classList.add('theme-dark');
-            } 
+            }
         }
+
     </script>
 
     <script src="script-partita.js"></script>
 </body>
+
+</html>

@@ -33,6 +33,7 @@ img {
     margin-top: 10px;
 }
 
+
 /* Stile per ogni quadratino 
 .grid-item {
     background-color: rgb(211, 209, 209);
@@ -45,6 +46,10 @@ img {
     border: 2px solid #000000;
 }
 */
+
+.grid-row > div{
+    height: 50px;
+}
 
 /* Stile per gli input*/
 .grid-item {
