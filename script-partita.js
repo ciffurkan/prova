@@ -25,16 +25,17 @@ function inputLetter() {
                     console.log("Hai già inserito 5 lettere!");
                     return;
                 } else {
+                    divLettere.item((tentativo*5)+inputCorrente.length).innerText = lettera.toUpperCase();
                     inputCorrente.push(lettera);
                     console.log("Lettere inserite:", inputCorrente.join(""));
                     inputParola = inputCorrente.join("");
-                    divLettere.item(tentativo+inputCorrente.length).innerText
                 }
 
             } else if (lettera == "backspace") {
                 if (inputCorrente.length > 0) {
                     inputCorrente.pop();
                     inputParola = inputCorrente.join("");
+                    divLettere.item((tentativo*5)+inputCorrente.length).innerText = "";
                     console.log("Lettere rimosse:", inputCorrente.join(""));
                 } else {
                     console.log("Nessuna lettera da rimuovere!");
@@ -48,6 +49,9 @@ function inputLetter() {
                 if (inputParola == parola) {
                     console.log("Parola esatta! Hai vinto!");
                     win = true;
+                    for (let i = 0; i < 5; i++) {
+                        divLettere.item(((tentativo)*5)+i).style.backgroundColor = "green";
+                    }
                 } else {
                     tentativo++;
                     let risultato = Array(5).fill("assente");
@@ -74,6 +78,15 @@ function inputLetter() {
                     }
 
                     console.log("Risultato:", risultato);
+                    for (let i = 0; i < 5; i++) {
+                        if (risultato[i] === "esatta") {
+                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "green";
+                        } else if (risultato[i] === "presente") {
+                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "yellow";
+                        } else {
+                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "gray";
+                        }
+                    }
                 }
 
                 
