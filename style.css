@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0; 
+    font-family: 'Playfair Display', serif;
 }
 
 h1 {
@@ -52,4 +53,57 @@ img {
 #play-button:active {
     transform: scale(1);
     background-color: #1c5980;
+}
+
+/* Aggiungi questi stili al tuo file style.css o in un blocco <style> in index.html */
+
+.popup-contenitore {
+    position: fixed; /* Si posiziona rispetto alla finestra del browser */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+}
+
+.popup-messaggio {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333; /* Colore del testo per il popup */
+}
+
+.popup-messaggio h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup-messaggio p {
+    color: #333;
+}
+
+.popup-messaggio button {
+    background-color: #3498db; /* Colore simile al tuo play-button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* Potresti voler aggiungere il font che usi nel gioco */
+    /* font-family: "Lilita One", sans-serif; */
+}
+
+.popup-messaggio button:hover {
+    background-color: #2980b9;
 }

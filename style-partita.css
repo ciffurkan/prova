@@ -37,8 +37,6 @@ img {
 /* Contenitore della griglia */
 .grid-container {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px;
     column-gap: 10px;
     row-gap: 20px;
     justify-content: center;
@@ -46,19 +44,20 @@ img {
     margin-top: 10px;
 }
 
-
-/* Stile per ogni quadratino 
-.grid-item {
-    background-color: rgb(211, 209, 209);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 2px solid #000000;
+.facile{
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px; 
 }
-*/
+
+.media{
+    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px; 
+}
+
+.difficile{
+    grid-template-columns: 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px; 
+}
 
 .grid-row>div {
     height: 50px;
@@ -199,8 +198,6 @@ footer {
     width: 30px;
     height: 30px;
 }
-
-/* ... (stili esistenti) ... */
 
 /* Stili per le finestre Popup */
 .popup-contenitore {
