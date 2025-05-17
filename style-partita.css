@@ -199,3 +199,78 @@ footer {
     width: 30px;
     height: 30px;
 }
+
+/* ... (stili esistenti) ... */
+
+/* Stili per le finestre Popup */
+.popup-contenitore {
+    position: fixed; /* Si posiziona rispetto alla finestra del browser */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+}
+
+.popup-messaggio {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333; /* Colore del testo per il popup */
+    
+}
+
+.popup-messaggio h2 {
+    margin-top: 0;
+    color: #333; /* Assicurati che il titolo sia visibile su sfondo bianco */
+}
+
+.popup-messaggio p {
+    color: #333; /* Assicurati che il paragrafo sia visibile su sfondo bianco */
+}
+
+.popup-messaggio button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Lilita One", sans-serif;
+}
+
+.popup-messaggio button:hover {
+    background-color: #45a049;
+}
+
+/* Assicurati che gli stili del tema non sovrascrivano i colori del popup se non desiderato */
+.theme-dark .popup-messaggio {
+    background-color: #333; /* Esempio per tema scuro */
+    color: #fff;
+}
+
+.theme-dark .popup-messaggio h2,
+.theme-dark .popup-messaggio p {
+    color: #fff;
+}
+
+.theme-light .popup-messaggio {
+    background-color: #fff; /* Esempio per tema chiaro */
+    color: #000;
+}
+
+.theme-light .popup-messaggio h2,
+.theme-light .popup-messaggio p {
+    color: #000;
+}

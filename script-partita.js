@@ -3,10 +3,26 @@ const parole = ["abate", "abati", "abbai", "abbia", "abete", "abeti", "abile", "
 let inputCorrente = [];
 let parola;
 let inputParola;
-let tentativo=0;
-let possibilita=6;
+let tentativo = 0;
+let possibilita = 6;
 let win = false;
 divLettere = document.getElementsByClassName("grid-container").item(0).getElementsByTagName("div");
+
+const popupVittoria = document.getElementById('popup-vittoria');
+const popupSconfitta = document.getElementById('popup-sconfitta');
+const parolaVintaSpan = document.getElementById('parola-vinta');
+const parolaPersaSpan = document.getElementById('parola-persa');
+
+function mostraPopupVittoria() {
+    parolaVintaSpan.textContent = parola.toUpperCase();
+    popupVittoria.style.display = 'flex';
+}
+
+function mostraPopupSconfitta() {
+    parolaPersaSpan.textContent = parola.toUpperCase();
+    popupSconfitta.style.display = 'flex';
+}
+
 
 function randomWord() {
     let random = Math.floor(Math.random() * parole.length);
@@ -18,14 +34,14 @@ function inputLetter() {
     document.getElementsByTagName("html").item(0).addEventListener("keyup", function (event) {
         const lettera = event.key.toLowerCase();
 
-        if (tentativo<possibilita && !win) {
-            
+        if (tentativo < possibilita && !win) {
+
             if (lettera.match(/^[a-z]$/)) {
                 if (inputCorrente.length >= 5) {
                     console.log("Hai già inserito 5 lettere!");
                     return;
                 } else {
-                    divLettere.item((tentativo*5)+inputCorrente.length).innerText = lettera.toUpperCase();
+                    divLettere.item((tentativo * 5) + inputCorrente.length).innerText = lettera.toUpperCase();
                     inputCorrente.push(lettera);
                     console.log("Lettere inserite:", inputCorrente.join(""));
                     inputParola = inputCorrente.join("");
@@ -35,7 +51,7 @@ function inputLetter() {
                 if (inputCorrente.length > 0) {
                     inputCorrente.pop();
                     inputParola = inputCorrente.join("");
-                    divLettere.item((tentativo*5)+inputCorrente.length).innerText = "";
+                    divLettere.item((tentativo * 5) + inputCorrente.length).innerText = "";
                     console.log("Lettere rimosse:", inputCorrente.join(""));
                 } else {
                     console.log("Nessuna lettera da rimuovere!");
@@ -50,14 +66,15 @@ function inputLetter() {
                     console.log("Parola esatta! Hai vinto!");
                     win = true;
                     for (let i = 0; i < 5; i++) {
-                        divLettere.item(((tentativo)*5)+i).style.backgroundColor = "green";
+                        divLettere.item(((tentativo) * 5) + i).style.backgroundColor = "green";
                     }
+                    mostraPopupVittoria();
                 } else {
                     tentativo++;
                     let risultato = Array(5).fill("assente");
                     let usate = Array(5).fill(false);
 
-                    
+
                     for (let i = 0; i < 5; i++) {
                         if (inputCorrente[i] === arrayParola[i]) {
                             risultato[i] = "esatta";
@@ -65,7 +82,7 @@ function inputLetter() {
                         }
                     }
 
-                    
+
                     for (let i = 0; i < 5; i++) {
                         if (risultato[i] === "esatta") continue;
                         for (let j = 0; j < 5; j++) {
@@ -80,22 +97,26 @@ function inputLetter() {
                     console.log("Risultato:", risultato);
                     for (let i = 0; i < 5; i++) {
                         if (risultato[i] === "esatta") {
-                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "#228B22";
+                            divLettere.item(((tentativo - 1) * 5) + i).style.backgroundColor = "#228B22";
                         } else if (risultato[i] === "presente") {
-                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "#FFD700";
+                            divLettere.item(((tentativo - 1) * 5) + i).style.backgroundColor = "#FFD700";
                         } else {
-                            divLettere.item(((tentativo-1)*5)+i).style.backgroundColor = "#404040";
+                            divLettere.item(((tentativo - 1) * 5) + i).style.backgroundColor = "#404040";
                         }
+                    }
+
+                    if(tentativo == possibilita && !win) {
+                        mostraPopupSconfitta();
                     }
                 }
 
-                
+
                 inputCorrente = [];
             }
-        }else{
-            console.log("finito")
+        } else {
+            console.log("finito");
         }
-        
+
 
     });
 }

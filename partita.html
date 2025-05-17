@@ -12,22 +12,19 @@
 </head>
 
 <body>
-    <a href='index.html'><img src="img/logo_no-bg.png"></a>
-
+    <a href='index.html'><img src="img/logo_no-bg.png" alt="Logo LanzaGame"></a>
     <div>
-
         <div class="bottonitema">
-            <a href='index.html'><button><img src="img/home.png"></button></a>
-            <button onclick="changeTheme('light')"><img src="img/immagine_sole.svg"></button>
-            <button onclick="changeTheme('dark')"><img src="img/immagine_luna.svg"></button>
+            <a href='index.html'><button><img src="img/home.png" alt="Home"></button></a> <button
+                onclick="changeTheme('light')"><img src="img/immagine_sole.svg" alt="Tema Chiaro"></button> <button
+                onclick="changeTheme('dark')"><img src="img/immagine_luna.svg" alt="Tema Scuro"></button>
         </div>
-
     </div>
 
     <div class="divider"></div>
 
-    <div class="grid-container bebas-neue-regular lilita-one-regular">
-
+    <div class="grid-container lilita-one-regular">
+        
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
@@ -69,56 +66,72 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
+
     </div>
 
     <div class="keyboard-container">
         <div class="keyboard-row">
-            <button id="q" class="key" onclick="inputButton()">Q</button>
-            <button id="w" class="key" onclick="inputButton()">W</button>
-            <button id="e" class="key" onclick="inputButton()">E</button>
-            <button id="r" class="key" onclick="inputButton()">R</button>
-            <button id="t" class="key" onclick="inputButton()">T</button>
-            <button id="y" class="key" onclick="inputButton()">Y</button>
-            <button id="u" class="key" onclick="inputButton()">U</button>
-            <button id="i" class="key" onclick="inputButton()">I</button>
-            <button id="o" class="key" onclick="inputButton()">O</button>
-            <button id="p" class="key" onclick="inputButton()">P</button>
+            <button id="q" class="key">Q</button>
+            <button id="w" class="key">W</button>
+            <button id="e" class="key">E</button>
+            <button id="r" class="key">R</button>
+            <button id="t" class="key">T</button>
+            <button id="y" class="key">Y</button>
+            <button id="u" class="key">U</button>
+            <button id="i" class="key">I</button>
+            <button id="o" class="key">O</button>
+            <button id="p" class="key">P</button>
         </div>
 
         <div class="keyboard-row">
             <div class="spacer"></div>
-            <button id="a" class="key" onclick="inputButton()">A</button>
-            <button id="s" class="key" onclick="inputButton()">S</button>
-            <button id="d" class="key" onclick="inputButton()">D</button>
-            <button id="f" class="key" onclick="inputButton()">F</button>
-            <button id="g" class="key" onclick="inputButton()">G</button>
-            <button id="h" class="key" onclick="inputButton()">H</button>
-            <button id="j" class="key" onclick="inputButton()">J</button>
-            <button id="k" class="key" onclick="inputButton()">K</button>
-            <button id="l" class="key" onclick="inputButton()">L</button>
+            <button id="a" class="key">A</button>
+            <button id="s" class="key">S</button>
+            <button id="d" class="key">D</button>
+            <button id="f" class="key">F</button>
+            <button id="g" class="key">G</button>
+            <button id="h" class="key">H</button>
+            <button id="j" class="key">J</button>
+            <button id="k" class="key">K</button>
+            <button id="l" class="key">L</button>
             <div class="spacer"></div>
         </div>
 
         <div class="keyboard-row">
             <div class="spacer double"></div>
-            <button id="invio" class="key2">↵</button>
-            <button id="z" class="key" onclick="inputButton()">Z</button>
-            <button id="x" class="key" onclick="inputButton()">X</button>
-            <button id="c" class="key" onclick="inputButton()">C</button>
-            <button id="v" class="key" onclick="inputButton()">V</button>
-            <button id="b" class="key" onclick="inputButton()">B</button>
-            <button id="n" class="key" onclick="inputButton()">N</button>
-            <button id="m" class="key" onclick="inputButton()">M</button>
-            <button id="canc" class="key2" onclick="inputButton()">⌫</button>
+            <button id="invio" class="key2">↵</button> <button id="z" class="key">Z</button>
+            <button id="x" class="key">X</button>
+            <button id="c" class="key">C</button>
+            <button id="v" class="key">V</button>
+            <button id="b" class="key">B</button>
+            <button id="n" class="key">N</button>
+            <button id="m" class="key">M</button>
+            <button id="canc" class="key2">⌫</button>
             <div class="spacer double"></div>
         </div>
     </div>
 
+    <div id="popup-vittoria" class="popup-contenitore lilita-one-regular" style="display:none;">
+        <div class="popup-messaggio">
+            <h2>Hai Vinto!</h2>
+            <p>La parola era: <span id="parola-vinta"></span></p>
+            <button onclick="ricominciaPartita()">Rigioca</button>
+            <a href='index.html'><button>Home</button></a>
+        </div>
+    </div>
+
+    <div id="popup-sconfitta" class="popup-contenitore lilita-one-regular" style="display:none;">
+        <div class="popup-messaggio">
+            <h2>Hai Perso!</h2>
+            <p>La parola era: <span id="parola-persa"></span></p>
+            <button onclick="ricominciaPartita()">Rigioca</button>
+            <a href='index.html'><button>Home</button></a>
+        </div>
+    </div>
 
     <footer>
         <p>crediti: De Santis e Ciftepala (D&C)</p>
     </footer>
-
 
     <script>
         function changeTheme(theme) {
@@ -130,8 +143,8 @@
             } else if (theme === 'dark') {
                 body.classList.add('theme-dark');
             }
-        }
 
+        }
     </script>
 
     <script src="script-partita.js"></script>
