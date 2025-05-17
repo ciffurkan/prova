@@ -6,6 +6,7 @@ let inputParola;
 let tentativo = 0;
 let possibilita = 0;
 let lettere = 0;
+const bottoniTastiera = document.getElementsByClassName("keyboard-container").item(0).getElementsByTagName("button");
 switch (sessionStorage.getItem("difficolta")) {
     case "facile":
         possibilita = 8;
@@ -65,25 +66,30 @@ function ricaricaPagina() {
 
 
 function randomWord() {
-    // Filtra le parole in base alla lunghezza definita dalla variabile 'lettere'
     const paroleFiltrate = parole.filter(p => p.length === lettere);
-
-    // Sceglie una parola casuale dall'elenco filtrato
     let random = Math.floor(Math.random() * paroleFiltrate.length);
     parola = paroleFiltrate[random];
     console.log("Parola scelta:", parola);
 }
 
 function inputLetter() {
+    Array.from(bottoniTastiera).forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            const lettera = event.target.id;
+            letteraPremuta(lettera);
+            event.target.blur();
+        });
+    });
     document.getElementsByTagName("html").item(0).addEventListener("keyup", function (event) {
         const lettera = event.key.toLowerCase();
-
+        letteraPremuta(lettera);
+    });
+    function letteraPremuta(lettera) {
         if (tentativo < possibilita && !win) {
 
             if (lettera.match(/^[a-z]$/)) {
                 if (inputCorrente.length >= lettere) {
                     console.log("Hai già inserito il massimo di lettere!");
-                    return;
                 } else {
                     divLettere.item((tentativo * lettere) + inputCorrente.length).innerText = lettera.toUpperCase();
                     inputCorrente.push(lettera);
@@ -149,6 +155,37 @@ function inputLetter() {
                         }
                     }
 
+                    for (let i = 0; i < risultato.length; i++) {
+                        if (risultato[i] == "esatta") {
+                            divLettere.item(((tentativo - 1) * lettere) + i).style.backgroundColor = "#228B22";
+                            for (let j = 0; j < bottoniTastiera.length; j++) {
+                                if (bottoniTastiera.item(j).id == inputCorrente[i]) {
+                                    bottoniTastiera.item(j).style.backgroundColor = "#228B22";
+                                    bottoniTastiera.item(j).style.border = "2px solid #228B22"
+                                }
+                            }
+                        } else if (risultato[i] == "presente") {
+                            divLettere.item(((tentativo - 1) * lettere) + i).style.backgroundColor = "#FFD700";
+                            for (let j = 0; j < bottoniTastiera.length; j++) {
+                                if (bottoniTastiera.item(j).id == inputCorrente[i]) {
+                                    if (bottoniTastiera.item(j).style.backgroundColor !== "rgb(34, 139, 34)") {
+                                        bottoniTastiera.item(j).style.backgroundColor = "#FFD700";
+                                        bottoniTastiera.item(j).style.border = "2px solid #FFD700"
+                                    }
+                                }
+                            }
+                        } else {
+                            for (let j = 0; j < bottoniTastiera.length; j++) {
+                                if (bottoniTastiera.item(j).id == inputCorrente[i]) {
+                                    if (bottoniTastiera.item(j).style.backgroundColor !== "rgb(34, 139, 34)" && bottoniTastiera.item(j).style.backgroundColor !== "rgb(255, 215, 0)") {
+                                        bottoniTastiera.item(j).style.backgroundColor = "#A5A3A3";
+                                        bottoniTastiera.item(j).style.border = "2px solid #A5A3A3"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     if (tentativo == possibilita && !win) {
                         mostraPopupSconfitta();
                     }
@@ -161,42 +198,10 @@ function inputLetter() {
             console.log("finito");
         }
 
-
-    });
+    };
 }
 
-function inputButton() {
-    document.getElementById("q").value = "q";
-    document.getElementById("w").value = "w";
-    document.getElementById("e").value = "e";
-    document.getElementById("r").value = "r";
-    document.getElementById("t").value = "t";
-    document.getElementById("y").value = "y";
-    document.getElementById("u").value = "u";
-    document.getElementById("i").value = "i";
-    document.getElementById("o").value = "o";
-    document.getElementById("p").value = "p";
-    document.getElementById("a").value = "a";
-    document.getElementById("s").value = "s";
-    document.getElementById("d").value = "d";
-    document.getElementById("f").value = "f";
-    document.getElementById("g").value = "g";
-    document.getElementById("h").value = "h";
-    document.getElementById("j").value = "j";
-    document.getElementById("k").value = "k";
-    document.getElementById("l").value = "l";
-    document.getElementById("z").value = "z";
-    document.getElementById("x").value = "x";
-    document.getElementById("c").value = "c";
-    document.getElementById("v").value = "v";
-    document.getElementById("b").value = "b";
-    document.getElementById("n").value = "n";
-    document.getElementById("m").value = "m";
-    document.getElementById("enter").value = "enter";
-    document.getElementById("canc").value = "backspace";
-}
-
-
+//se aggiorna o accede alla pagina senza passare da index.html lo rimanda ad index.html
 document.addEventListener("DOMContentLoaded", function () {
     if (sessionStorage.getItem('buttonClicked') === 'true') {
         sessionStorage.removeItem('buttonClicked');
