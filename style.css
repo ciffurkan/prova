@@ -1,73 +1,78 @@
 body {
     background-color: #f9f8f5;
     display: flex;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
-    height: 100vh;
-    margin: 0; 
+    min-height: 100vh; /* Usa min-height per permettere lo scroll se il contenuto è più lungo */
+    margin: 0;
     font-family: 'Playfair Display', serif;
+    padding: 20px; /* Aggiungi padding per evitare che gli elementi tocchino i bordi */
+    box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
 }
 
-h1 {
+h1 { /* Se presente, altrimenti rimuovere o adattare se si riferisce al testo del logo */
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-size: clamp(32px, 8vw, 48px); /* Font responsivo */
     font-weight: bold;
-    color: #08c738; 
+    color: #08c738;
     text-align: center;
     letter-spacing: 2px;
-    margin-top: 50px;
+    margin-top: 30px; /* Margine ridotto per mobile */
+    margin-bottom: 20px;
 }
 
-p {
-    font-size: 20px;
+p { /* Stile generico per paragrafi, se applicabile */
+    font-size: clamp(16px, 4vw, 20px); /* Font responsivo */
     font-weight: lighter;
-    color: #fefeff; 
+    color: #fefeff; /* Attenzione: testo bianco su sfondo chiaro potrebbe essere illeggibile */
+                    /* Verifica se questo stile è ancora necessario o va corretto */
 }
 
-img {
-    width: 500px; 
-    margin: 20px 0; 
+img { /* Logo principale */
+    max-width: 100%;
+    height: auto;
+    width: 400px; /* Larghezza di base */
+    margin: 20px 0;
 }
 
 #play-button {
-    background-color: #3498db; 
-    color: white; 
-    font-size: 48px;
-    padding: 15px 30px; 
-    border: none; 
-    border-radius: 50px; 
-    text-transform: uppercase; 
-    font-weight: bold; 
-    cursor: pointer; /* Cambia il cursore quando sopra il bottone */
+    background-color: #3498db;
+    color: white;
+    font-size: clamp(28px, 7vw, 48px); /* Font responsivo */
+    padding: clamp(10px, 2.5vw, 15px) clamp(20px, 5vw, 30px); /* Padding responsivo */
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 20px; /* Distanza tra il bottone e gli altri elementi */
+    margin-top: 20px;
 }
 
-/* Effetto hover per il bottone */
 #play-button:hover {
-    background-color: #2980b9; 
-    transform: scale(1.05); 
+    background-color: #2980b9;
+    transform: scale(1.05);
 }
 
-/* Effetto attivo per quando il bottone viene cliccato */
 #play-button:active {
     transform: scale(1);
     background-color: #1c5980;
 }
 
-/* Aggiungi questi stili al tuo file style.css o in un blocco <style> in index.html */
-
 .popup-contenitore {
-    position: fixed; /* Si posiziona rispetto alla finestra del browser */
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+    z-index: 1000;
+    font-family: "Lilita One", sans-serif;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .popup-messaggio {
@@ -76,34 +81,52 @@ img {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #333; /* Colore del testo per il popup */
+    color: #333;
+    width: 90%;
+    max-width: 450px; /* Limite per schermi più grandi */
+    box-sizing: border-box;
 }
 
 .popup-messaggio h2 {
     margin-top: 0;
     color: #333;
+    font-size: clamp(20px, 5vw, 24px);
 }
 
 .popup-messaggio p {
     color: #333;
+    font-size: clamp(14px, 3.5vw, 18px);
 }
 
 .popup-messaggio button {
-    background-color: #3498db; /* Colore simile al tuo play-button */
+    background-color: #3498db;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px; /* Padding leggermente ridotto */
     text-align: center;
     text-decoration: none;
-    display: inline;
-    font-size: 16px;
-    margin: 10px 5px;
+    display: inline-block; /* Cambiato da inline per permettere padding e margin corretti */
+    font-size: clamp(14px, 3.5vw, 16px);
+    margin: 8px 4px;
     cursor: pointer;
     border-radius: 5px;
-    /* Potresti voler aggiungere il font che usi nel gioco */
-    /* font-family: "Lilita One", sans-serif; */
+    font-family: "Lilita One", sans-serif;
 }
 
 .popup-messaggio button:hover {
     background-color: #2980b9;
+}
+
+/* Media Queries per schermi più piccoli */
+@media (max-width: 600px) {
+    img { /* Logo principale */
+        width: 70%;
+        max-width: 300px; /* Limite specifico per mobile se necessario */
+        margin-top: 40px; /* Più spazio sopra su mobile */
+    }
+
+    #play-button {
+        width: 70%; /* Fai in modo che il bottone sia più largo su mobile */
+        max-width: 300px;
+    }
 }
