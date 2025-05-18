@@ -3,43 +3,43 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh; /* Usa min-height per permettere lo scroll se il contenuto è più lungo */
+    min-height: 100vh;
     margin: 0;
     font-family: 'Playfair Display', serif;
-    padding: 20px; /* Aggiungi padding per evitare che gli elementi tocchino i bordi */
-    box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-h1 { /* Se presente, altrimenti rimuovere o adattare se si riferisce al testo del logo */
+h1 { /* Titolo principale, se usato */
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 8vw, 48px); /* Font responsivo */
+    font-size: clamp(30px, 7vw, 48px); /* Dimensione font responsiva */
     font-weight: bold;
     color: #08c738;
     text-align: center;
     letter-spacing: 2px;
-    margin-top: 30px; /* Margine ridotto per mobile */
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-p { /* Stile generico per paragrafi, se applicabile */
-    font-size: clamp(16px, 4vw, 20px); /* Font responsivo */
+p { /* Stile P originale da style.css */
+    font-size: 20px; /* Mantenuto originale, se non serve per il popup, si può specificare meglio */
     font-weight: lighter;
-    color: #fefeff; /* Attenzione: testo bianco su sfondo chiaro potrebbe essere illeggibile */
-                    /* Verifica se questo stile è ancora necessario o va corretto */
+    color: #fefeff; /* Testo bianco, attenzione se lo sfondo è chiaro */
 }
 
+
 img { /* Logo principale */
-    max-width: 100%;
-    height: auto;
-    width: 400px; /* Larghezza di base */
+    max-width: 100%; /* Responsivo */
+    height: auto;    /* Mantiene proporzioni */
+    width: 450px;    /* Larghezza di base per desktop */
     margin: 20px 0;
 }
 
 #play-button {
     background-color: #3498db;
     color: white;
-    font-size: clamp(28px, 7vw, 48px); /* Font responsivo */
-    padding: clamp(10px, 2.5vw, 15px) clamp(20px, 5vw, 30px); /* Padding responsivo */
+    font-size: clamp(26px, 6vw, 48px); /* Font responsivo */
+    padding: clamp(12px, 3vw, 15px) clamp(25px, 6vw, 30px); /* Padding responsivo */
     border: none;
     border-radius: 50px;
     text-transform: uppercase;
@@ -47,6 +47,8 @@ img { /* Logo principale */
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
+    max-width: 90%; /* Assicura che non ecceda su schermi stretti */
+    box-sizing: border-box;
 }
 
 #play-button:hover {
@@ -70,8 +72,8 @@ img { /* Logo principale */
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    font-family: "Lilita One", sans-serif;
-    padding: 15px;
+    font-family: "Lilita One", sans-serif; /* Ripristinato font originale del popup */
+    padding: 15px; /* Per evitare che il popup tocchi i bordi */
     box-sizing: border-box;
 }
 
@@ -83,50 +85,49 @@ img { /* Logo principale */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: #333;
     width: 90%;
-    max-width: 450px; /* Limite per schermi più grandi */
+    max-width: 400px;
     box-sizing: border-box;
 }
 
 .popup-messaggio h2 {
     margin-top: 0;
-    color: #333;
-    font-size: clamp(20px, 5vw, 24px);
+    color: #333; /* Colore originale */
+    font-size: clamp(18px, 4.5vw, 22px);
 }
 
-.popup-messaggio p {
-    color: #333;
-    font-size: clamp(14px, 3.5vw, 18px);
+.popup-messaggio p { /* Specifico per il P dentro popup-messaggio */
+    color: #333; /* Colore originale */
+    font-size: clamp(14px, 3.5vw, 16px);
+    font-weight: normal; /* Sovrascrive il P generico */
 }
 
 .popup-messaggio button {
-    background-color: #3498db;
+    background-color: #3498db; /* Colore originale */
     color: white;
     border: none;
-    padding: 10px 15px; /* Padding leggermente ridotto */
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block; /* Cambiato da inline per permettere padding e margin corretti */
+    display: inline-block;
     font-size: clamp(14px, 3.5vw, 16px);
-    margin: 8px 4px;
+    margin: 10px 5px;
     cursor: pointer;
     border-radius: 5px;
-    font-family: "Lilita One", sans-serif;
+    font-family: "Lilita One", sans-serif; /* Ripristinato font originale del popup */
 }
 
 .popup-messaggio button:hover {
     background-color: #2980b9;
 }
 
-/* Media Queries per schermi più piccoli */
+/* Media query per aggiustamenti su schermi piccoli */
 @media (max-width: 600px) {
     img { /* Logo principale */
-        width: 70%;
-        max-width: 300px; /* Limite specifico per mobile se necessario */
-        margin-top: 40px; /* Più spazio sopra su mobile */
+        width: 80%;
+        max-width: 280px;
     }
 
-    #play-button {
-        width: 70%; /* Fai in modo che il bottone sia più largo su mobile */
-        max-width: 300px;
+    h1 {
+        margin-top: 30px;
     }
 }

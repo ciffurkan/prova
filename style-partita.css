@@ -1,12 +1,18 @@
 body {
-    background-color: #f9f8f5; /* Colore di fallback */
+    background-color: #f9f8f5;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    align-items: center; /* Centra il contenuto principale orizzontalmente */
-    padding: 0 10px; /* Padding laterale per evitare che il contenuto tocchi i bordi */
+    align-items: center;
+    padding: 0 10px;
     box-sizing: border-box;
+}
+
+img {
+    width: 60%;
+    display: block;
+    margin: auto;
 }
 
 .game-header {
@@ -161,6 +167,7 @@ body {
     max-width: 600px; /* Limite per la larghezza della tastiera */
     padding: 0 5px;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .keyboard-row {
@@ -237,39 +244,40 @@ footer {
 
 /*----------------------------------------------------------------------------------------*/
 /* Temi */
+.theme-black-white {
+    background-color: #000;
+    color: #fff;
+}
+
 .theme-light {
     background-color: #fff;
     color: #000;
 }
-.theme-light .divider { border-top-color: #000; }
-.theme-light .grid-item { background-color: #e0e0e0; color: #000; border-color: #ccc; }
-.theme-light .grid-item.assente { background-color: #787c7e !important; color: white; border-color: #686c6e !important; }
-.theme-light .key, .theme-light .key2 { background-color: #d3d6da; color: #000; border-color: #b0b3b6; }
-.theme-light .key.assente, .theme-light .key2.assente { background-color: #787c7e !important; color:white; border-color: #686c6e !important;}
-.theme-light .key.presente, .theme-light .key2.presente { background-color: #c9b458 !important; color:white; border-color: #b9a448 !important;}
-.theme-light .key.esatta, .theme-light .key2.esatta { background-color: #6aaa64 !important; color:white; border-color: #5a9a54 !important;}
-.theme-light .popup-messaggio { background-color: #f0f0f0; color: #000;}
-.theme-light .popup-messaggio h2, .theme-light .popup-messaggio p {color: #000;}
-
 
 .theme-dark {
-    background-color: #121213; /* Colore Wordle scuro */
+    background-color: #232629;
     color: #fff;
 }
-.theme-dark .divider { border-top-color: #3a3a3c; } /* Linea divisoria più scura */
-.theme-dark .grid-item { background-color: #3a3a3c; color: #fff; border: 2px solid #2c2c2e; }
-.theme-dark .grid-item.assente { background-color: #3a3a3c !important; border-color: #2c2c2e !important; } /* Già scuro, ma per coerenza */
-.theme-dark .grid-item.presente { background-color: #b59f3b !important; border-color: #a58f2b !important; }
-.theme-dark .grid-item.esatta { background-color: #538d4e !important; border-color: #437d3e !important; }
 
-.theme-dark .key, .theme-dark .key2 { background-color: #818384; color: #fff; border-color: #505354; }
-.theme-dark .key.assente, .theme-dark .key2.assente { background-color: #3a3a3c !important; border-color: #2c2c2e !important; }
-.theme-dark .key.presente, .theme-dark .key2.presente { background-color: #b59f3b !important; border-color: #a58f2b !important; }
-.theme-dark .key.esatta, .theme-dark .key2.esatta { background-color: #538d4e !important; border-color: #437d3e !important; }
-.theme-dark .popup-messaggio { background-color: #2c2c2e; color: #fff; }
-.theme-dark .popup-messaggio h2, .theme-dark .popup-messaggio p {color: #fff;}
-.theme-dark .game-header .logo-link img { filter: invert(1) hue-rotate(180deg); } /* Rende il logo più visibile su sfondo scuro */
-.theme-dark .bottonitema button img { filter: invert(1); }
+.theme-dark .popup-messaggio {
+    background-color: #333; /* Esempio per tema scuro */
+    color: #fff;
+}
+
+.theme-dark .popup-messaggio h2,
+.theme-dark .popup-messaggio p {
+    color: #fff;
+}
+
+.theme-light .popup-messaggio {
+    background-color: #fff; /* Esempio per tema chiaro */
+    color: #000;
+}
+
+.theme-light .popup-messaggio h2,
+.theme-light .popup-messaggio p {
+    color: #000;
+}
 
 
 /* Stili per le finestre Popup */
@@ -322,19 +330,4 @@ footer {
     border-radius: 8px; /* Bordi più arrotondati */
     font-family: "Lilita One", sans-serif;
     transition: background-color 0.2s ease;
-}
-/* Colori specifici per i bottoni del popup */
-.popup-messaggio button[onclick*="ricaricaPagina"] { background-color: #4CAF50; }
-.popup-messaggio button[onclick*="ricaricaPagina"]:hover { background-color: #45a049; }
-.popup-messaggio button[onclick*="home"] { background-color: #f44336; }
-.popup-messaggio button[onclick*="home"]:hover { background-color: #e43326; }
-
-/* Stile per il tema di default se nessun tema è selezionato (usa colori di .theme-light come base) */
-body:not(.theme-dark) .popup-messaggio {
-    background-color: #f0f0f0;
-    color: #000;
-}
-body:not(.theme-dark) .popup-messaggio h2,
-body:not(.theme-dark) .popup-messaggio p {
-    color: #000;
 }
