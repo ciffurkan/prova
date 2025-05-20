@@ -22,7 +22,7 @@ img {
     align-items: center;
     padding: 10px 20px;
     box-sizing: border-box;
-    position: relative; /* Per il posizionamento dei .bottonitema se necessario */
+    position: relative; /* okPer il posizionamento dei .bottonitema se necessario */
 }
 
 .game-header .logo-link img {
